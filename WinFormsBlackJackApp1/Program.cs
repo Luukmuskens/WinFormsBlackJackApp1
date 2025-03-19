@@ -12,6 +12,9 @@ namespace WinFormsBlackJackApp1
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
+
+            string hello = Console.ReadLine();
+            Console.WriteLine(hello);
         }
     }
 }
