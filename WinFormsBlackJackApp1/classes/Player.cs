@@ -44,8 +44,4 @@ namespace WinFormsBlackJackApp1.classes
 
         }
     }
-
-    public class hand
-    {
-    }
 }
