@@ -9,6 +9,25 @@ namespace WinFormsBlackJackApp1.classes
 {
     internal class Card
     {
+        public Card(object v1, object v2)
+        {
+        }
+
+        internal static object getvalue()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal object getname()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal string GetValue()
+        {
+            throw new NotImplementedException();
+        }
+
         public enum Suits
         {
             CLUBS,
