@@ -15,21 +15,44 @@ namespace WinFormsBlackJackApp1.classes
         private bool blackjack = false;
         private bool stand = false;
 
-        public void Setcard (Card card)
-        {  
-            cards.Add(new Card(card.getname(), Card.getvalue())); 
-        }
-
-        public List<Card> Getcards() { return cards; }
-
-        internal List<Card> Getcard(object card)
+        public Hand()
         {
-            throw new NotImplementedException();
+            cards = new List<Card>();
         }
 
-        internal List<Card> Getcard()
+        public void addCard(Card card)
         {
-            throw new NotImplementedException();
+            cards.Add(card);
+            CalculateScore();
         }
+
+        public void CalculateScore()
+        {
+            score = 0;
+            foreach (Card card in cards)
+            {
+                score += card.GetValue();
+            }
+            foreach (Card card in cards)
+            {
+                if (card.GetRank() == "A" && score > 21)
+                {
+                    Console.WriteLine("The score is " + score + "but an ace is adjusted from 11 to 1");
+                    card.ChangeValue();
+                    RecalculateScore();
+                }
+            }
+        } public void RecalculateScore()
+        {
+            score = 0;
+            foreach (Card card in cards)
+            {
+                score += card.GetValue();
+            }
+        }
+
+
+
+
     }
 }
