@@ -9,6 +9,11 @@ namespace WinFormsBlackJackApp1.classes
     internal class Hand
     {
         private List<Card> cards = new List<Card>();
+        private int score;
+        private bool won = false;
+        private bool buse = false;
+        private bool blackjack = false;
+        private bool stand = false;
 
         public void Setcard (Card card)
         {  

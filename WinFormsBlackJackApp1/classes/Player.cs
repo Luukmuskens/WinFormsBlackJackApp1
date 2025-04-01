@@ -12,11 +12,11 @@ namespace WinFormsBlackJackApp1.classes
     {
         Hand Hand = new Hand();
         private int winstreak;
-        public bool klaar = false;
+        public bool done = false;
 
         public void stand()
         {
-            this.klaar = true;
+            this.done = true;
         }
         public void hit(Card card)
         {

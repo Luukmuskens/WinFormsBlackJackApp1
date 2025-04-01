@@ -5,6 +5,7 @@ namespace WinFormsBlackJackApp1
         public Form1()
         {
             InitializeComponent();
+
         }
     }
 }
