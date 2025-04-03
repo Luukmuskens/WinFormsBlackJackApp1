@@ -8,40 +8,17 @@ using static WinFormsBlackJackApp1.classes.Deck;
 
 namespace WinFormsBlackJackApp1.classes
 {
-    internal class Player
+    private List<Hand> hands;
+
+    // Win streak counter
+    private int winstreak;
+
+    // Flag to check if the player's turn is done
+    public bool done = false;
+
+    
+    public Player()
     {
-        Hand Hand = new Hand();
-        private int winstreak;
-        public bool done = false;
-
-        public void stand()
-        {
-            this.done = true;
-        }
-        public void hit(Card card)
-        {
-            Hand.Setcard(card);
-        }
-        public void playerwon()
-        {
-            this.winstreak++;
-        }
-
-        public void playershowhand()
-        {
-            List<Card> cards = Hand.Getcard();
-            foreach (Card card in cards)
-            {
-                string first = card.GetType().Name;
-                string second = card.GetValue();
-                Console.WriteLine("card Name: " + first + " Value: " + second);
-            }
-        }
-        public Hand Gethand()
-        {
-            return this.Hand;
-
-
-        }
+        
     }
 }
