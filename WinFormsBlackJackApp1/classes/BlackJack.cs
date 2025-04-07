@@ -26,6 +26,18 @@ namespace WinFormsBlackJackApp1.classes
             dealer = new Dealer();
         }
 
+        public void ResetGame()
+        {
+            deck = new Deck();
+            player = new Player();
+            dealer = new Dealer();
+        }
+        public void ResetScore()
+        {
+            playerWins = 0;
+            dealerWins = 0;
+            ties = 0;
+        }
 
 
         public void StartGame()
