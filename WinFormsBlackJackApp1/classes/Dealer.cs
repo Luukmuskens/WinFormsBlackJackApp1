@@ -178,4 +178,9 @@ namespace WinFormsBlackJackApp1.classes
 
             }
         }
-}   }
+
+        internal void ShowHand(bool hideDealerCard)
+        {
+            throw new NotImplementedException();
+        }
+    }   }

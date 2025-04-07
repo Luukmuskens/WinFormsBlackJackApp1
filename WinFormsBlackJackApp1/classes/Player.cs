@@ -19,6 +19,6 @@ namespace WinFormsBlackJackApp1.classes
     
     public Player()
     {
-      DataGridViewRowsAddedEventArgs 
+      
     }
 }
