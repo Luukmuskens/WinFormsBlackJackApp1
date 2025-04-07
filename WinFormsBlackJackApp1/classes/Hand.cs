@@ -51,6 +51,147 @@ namespace WinFormsBlackJackApp1.classes
             }
         }
 
+        public bool CheckBlackjack()
+        {
+            if (cards.Count == 2 && score == 21)
+            {
+                blackjack = true;
+                return true;
+            }
+            return false;
+        }
+
+        public bool ChangeBust()
+        {
+            if (score > 21)
+            {
+                buse = true;
+                return true;
+            }
+            return false;
+        }
+
+        public void CheckWon()
+        { 
+            won = score <= 21;
+        }
+
+        public void Stand()
+        {
+            stand = true;
+        }
+        
+        public void GetIsHidden()
+        {
+            foreach (Card card in cards)
+            {
+                if (card.GetIsHidden())
+                {
+                    Console.WriteLine("Card is hidden");
+                }
+                else
+                {
+                    Console.WriteLine("Card is not hidden");
+                }
+            }
+        }
+
+        public void card.SetSuit(string suit)
+        {
+            foreach (Card card in cards)
+            {
+                card.SetSuit(suit);
+            }
+        }
+
+        public void card.SetRank(string rank)
+        {
+            foreach (Card card in cards)
+            {
+                card.SetRank(rank);
+            }
+        }
+        public void card.SetValue(int value)
+        {
+            foreach (Card card in cards)
+            {
+                card.SetValue(value);
+            }
+        }
+
+        public void card.SetIsHidden(bool isHidden)
+        {
+            foreach (Card card in cards)
+            {
+                card.SetIsHidden(isHidden);
+            }
+        }
+        public List<Card> GetCards()
+        {
+            return cards;
+        }
+
+        public void printCards()
+        {
+            foreach (Card card in cards)
+            {
+                if (!card.GetIsHidden())
+                {
+                    Console.WriteLine(card.GetSuit() + " " + card.GetRank());
+                }
+                else
+                {
+                    Console.WriteLine(" ? ?");
+                }
+            }
+        }
+
+        public int GetScore()
+        {
+            return score;
+        }
+        public bool GetWon()
+        {
+            return won;
+        }
+        public bool GetBuse()
+        {
+            return buse;
+        }
+        public bool GetBlackjack()
+        {
+            return blackjack;
+        }
+        public bool GetStand()
+        {
+            return stand;
+        }
+        public void Reset()
+        {
+            cards.Clear();
+            score = 0;
+            won = false;
+            buse = false;
+            blackjack = false;
+            stand = false;
+        }
+        public List<Card> GetCards()
+        {
+            return cards;
+        }
+        public void SetCards(List<Card> newCards)
+        {
+            cards = newCards;
+            CalculateScore();
+        }
+        public void SetScore(int newScore)
+        {
+            score = newScore;
+        }
+
+
+
+
 
 
 
