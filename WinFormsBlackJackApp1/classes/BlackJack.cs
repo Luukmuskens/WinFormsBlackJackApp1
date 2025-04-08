@@ -13,6 +13,12 @@ namespace WinFormsBlackJackApp1.classes
         private Player player;
         private Dealer dealer;
 
+
+        // score counters
+        private int playerWins = 0;
+        private int dealerWins = 0;
+        private int ties = 0;
+
         public BlackJack()
         {
             deck = new Deck();
@@ -20,6 +26,18 @@ namespace WinFormsBlackJackApp1.classes
             dealer = new Dealer();
         }
 
+        public void ResetGame()
+        {
+            deck = new Deck();
+            player = new Player();
+            dealer = new Dealer();
+        }
+        public void ResetScore()
+        {
+            playerWins = 0;
+            dealerWins = 0;
+            ties = 0;
+        }
 
 
         public void StartGame()
@@ -140,6 +158,12 @@ namespace WinFormsBlackJackApp1.classes
             }
         }
 
+        public string GetScore()
+        {
+            return $"Player won : {playerWins} | Dealer won: {dealerWins} | Draw: {ties}";
+        }
     }
-} 
+
+}
+
 
