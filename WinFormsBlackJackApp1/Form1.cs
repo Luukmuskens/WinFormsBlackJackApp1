@@ -4,68 +4,122 @@ namespace WinFormsBlackJackApp1
 {
     public partial class Form1 : Form
     {
-        private BlackJack game;
+ hitisernu#1
+
+
+        private BlackJackGame game;
         public Form1()
         {
             InitializeComponent();
-            game = new BlackJack();
-            UpdateUI();
+            game = new BlackJackGame();
+            updateUI();
         }
 
-        private void UpdateUI()
+        private void updateUI()
         {
             // Update the UI elements with the current game state
-            playerCardsLabel.Text = string.Join(", ", game.GetPlayerCards());
-            dealerCardsLabel.Text = string.Join(", ", game.GetDealerCards());
             playerScoreLabel.Text = "Player Score: " + game.GetPlayerScore();
             dealerScoreLabel.Text = "Dealer Score: " + game.GetDealerScore();
-            resultLabel.Text = game.GetResult();
+            playerCardsLabel.Text = "Player Cards: " + string.Join(", ", game.GetPlayerCards());
+            dealerCardsLabel.Text = "Dealer Cards: " + string.Join(", ", game.GetDealerCards());
         }
 
-        private void btnStart_Click(object sender, EventArgs e)
+        private void hitButton_Click(object sender, EventArgs e)
         {
-            game.Start();
-            listBoxGameLog.Items.Add("Nieuwe ronde gestart!");
-            listBoxGameLog.Items.Add("Kaarten gedeeld.");
-            UpdateUI();
-        }
-
-        private void btnHit_Click(object sender, EventArgs e)
-        {
-            game.PlayerHits();
-            listBoxGameLog.Items.Add("Speler kiest: Hit");
-            CheckGameState();
-        }
-
-    
-
-        private void CheckGameState()
-        {
-            if (game.IsRoundOver())
+            game.PlayerHit();
+            updateUI();
+            if (game.IsGameOver())
             {
-                listBoxGameLog.Items.Add("Ronde afgelopen!");
-                listBoxGameLog.Items.Add(game.GetRoundResult());
-                UpdateUI();
+                MessageBox.Show("Game Over! " + game.GetGameResult());
+                game.ResetGame();
+                updateUI();
             }
         }
 
-        private void UpdateUI()
+        private void standButton_Click(object sender, EventArgs e)
         {
-            lblScore.Text = game.GetScore();
+            game.PlayerStand();
+            updateUI();
+            if (game.IsGameOver())
+            {
+                MessageBox.Show("Game Over! " + game.GetGameResult());
+                game.ResetGame();
+                updateUI();
+            }
         }
 
-        private void btnResetScore_Click(object sender, EventArgs e)
+        private void newGameButton_Click(object sender, EventArgs e)
         {
-            game.ResetScore();
-            listBoxGameLog.Items.Add("Score is gereset.");
-            UpdateUI();
+            game.ResetGame();
+            updateUI();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            game.PlayerStands();
-            listBoxGameLog.Items.Add("Speler kiest: Stand");
-            CheckGameState();
+            // Initialize the game when the form loads
+            game = new BlackJackGame();
+            updateUI();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Clean up resources if needed
+            game.Dispose();
+        }
+
+        private void blackjackButton_Click(object sender, EventArgs e)
+        {
+            // Start a new game of Blackjack
+            game.StartGame();
+            updateUI();
+        }
+
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            // Reset the game state
+            game.ResetGame();
+            updateUI();
+        }
+
+     
+
+        private void CheckGameState()
+        {
+            // Check if the game is over and display the result
+            if (game.IsGameOver())
+            {
+                string result = game.GetGameResult();
+                MessageBox.Show(result);
+                game.ResetGame();
+                updateUI();
+            }
+        }
+
+        private void playerButton_Click(object sender, EventArgs e)
+        {
+            // Player's turn
+            game.PlayerTurn();
+            updateUI();
+            if (game.IsGameOver())
+            {
+                MessageBox.Show("Game Over! " + game.GetGameResult());
+                game.ResetGame();
+                updateUI();
+            }
+        }
+
+        private void dealerButton_Click(object sender, EventArgs e)
+        {
+            // Dealer's turn
+            game.DealerTurn();
+            updateUI();
+            if (game.IsGameOver())
+            {
+                MessageBox.Show("Game Over! " + game.GetGameResult());
+                game.ResetGame();
+                updateUI();
+            }
+Dev
         }
     }
 }
