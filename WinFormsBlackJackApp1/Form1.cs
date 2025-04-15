@@ -1,7 +1,11 @@
+using WinFormsBlackJackApp1.classes;
+
 namespace WinFormsBlackJackApp1
 {
     public partial class Form1 : Form
     {
+ hitisernu#1
+
 
         private BlackJackGame game;
         public Form1()
@@ -115,6 +119,7 @@ namespace WinFormsBlackJackApp1
                 game.ResetGame();
                 updateUI();
             }
+Dev
         }
     }
 }

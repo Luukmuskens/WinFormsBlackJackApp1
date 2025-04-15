@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
@@ -10,15 +11,23 @@ namespace WinFormsBlackJackApp1.classes
 {
     private List<Hand> hands;
 
-    // Win streak counter
-    private int winstreak;
-
-    // Flag to check if the player's turn is done
-    public bool done = false;
-
-    
     public Player()
     {
-      
+      Hands = new List<Hand>();
+        for (int i = 0; i < 2; i++)
+        {
+            hands.Add(new Hand());
+        }
+    
+    }
+
+    public void stand(Hand hand)
+    {
+        hand.ToStand();
+    }
+
+    public list<hand> GetHands()
+    {
+        return hands;
     }
 }
